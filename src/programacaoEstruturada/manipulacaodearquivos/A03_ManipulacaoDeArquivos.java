@@ -4,26 +4,23 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
-public class A02_ManipulacaoDeArquivos {
+public class A03_ManipulacaoDeArquivos {
 	public static void main(String[] args) {
 		String endereco = "arquivo.txt";
-		criarArquivo(endereco);
-		escreverArquivo(endereco, "melancia,1.25\n");
-		escreverArquivo(endereco, "laranja,5.0\n");
-		System.out.println(lerArquivo(endereco));
+		Map<String, Double> produtos = new HashMap<String, Double>();
 		
-		String resultado = lerArquivo(endereco);
-		String linha[] = resultado.split("\n");
-		String produto[] = linha[0].split(",");
+		produtos.put("chocolate", 5.0);
+		produtos.put("Frango", 15.0);
 		
-		System.out.println("Nome: "+produto[0]+" Preço: "+produto[1]);
+		escreverArquivo(endereco, produtos);
 	}
 
 	public static void criarArquivo(String endereco) {
-		
-		
+
 		File arquivo = new File(endereco);
 		try {
 			if (arquivo.createNewFile()) {
@@ -37,15 +34,17 @@ public class A02_ManipulacaoDeArquivos {
 		}
 	}
 
-	public static void escreverArquivo(String endereco, String texto) {
+	public static void escreverArquivo(String endereco, Map<String, Double> produtos) {
 		String resposta = lerArquivo(endereco);
-		
+
 		File arquivo = new File(endereco);
 		try {
 			FileWriter escrevedor = new FileWriter(arquivo);
 
-			escrevedor.write(resposta+texto);
-			
+			for (String chave : produtos.keySet()) {
+				escrevedor.write(resposta + " " + chave + " " + produtos.get(chave));
+			}
+
 			escrevedor.close();
 
 			System.out.println("Arquivo escrito com sucesso. ");
@@ -63,7 +62,7 @@ public class A02_ManipulacaoDeArquivos {
 
 			while (sc.hasNextLine()) {
 				String linha = sc.nextLine();
-				resposta+=linha+"\n";
+				resposta += linha + "\n";
 			}
 			sc.close();
 		} catch (FileNotFoundException e) {
