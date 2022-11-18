@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class A01_ManipulacaoDeArquivos {
 	public static void main(String[] args) {
 		String endereco = "arquivo.txt";
-		// criarArquivo(endereco);
+		 criarArquivo(endereco);
 		//escreverArquivo(endereco);
 		
 		lerArquivo(endereco);

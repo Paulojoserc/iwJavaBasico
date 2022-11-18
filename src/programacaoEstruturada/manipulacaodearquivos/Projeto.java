@@ -16,22 +16,22 @@ public static void main(String[] args) {
 		
 		while(true) {
 		
-			Scanner leitor = new Scanner(System.in);
+			Scanner sc = new Scanner(System.in);
 			System.out.println("1-adicionar produto");
 			System.out.println("2-listar produtos");
 			System.out.println("3-alterar produtos");
 			System.out.println("4-alterar preço");
 			System.out.println("5-deletar produtos");
-			opcao = leitor.nextInt();
-					leitor.nextLine();
+			opcao = sc.nextInt();
+					sc.nextLine();
 			
 			switch(opcao) {
 			
 				case 1: System.out.println("digite o nome do produto");
-				        nome = leitor.nextLine();
+				        nome = sc.nextLine();
 				        
 				        System.out.println("Informe o preço do produto");
-				        precoProduto = leitor.nextDouble();
+				        precoProduto = sc.nextDouble();
 				        
 				        inserirProduto(codigo, produtos,precos, nome,precoProduto);
 				        codigo++  ;
@@ -52,8 +52,8 @@ public static void main(String[] args) {
 				 		 }
 					
 						 System.out.println("Digite o código do produto");
-						 codigoProduto = leitor.nextInt();
-						                 leitor.nextLine();
+						 codigoProduto = sc.nextInt();
+						                 sc.nextLine();
 						                 
 						 if(codigoProduto<=0 || codigoProduto > codigo) {
 							 System.err.println("código inválido");
@@ -61,7 +61,7 @@ public static void main(String[] args) {
 						 }
 							 
 						 System.out.println("Digite o novo nome do produto");
-						 nome = leitor.nextLine();
+						 nome = sc.nextLine();
 						 
 						 alterarProdutoNome(codigoProduto, produtos,precos, nome);
 						 break;
@@ -73,8 +73,8 @@ public static void main(String[] args) {
 			 		 }
 				
 					 System.out.println("Digite o código do produto");
-					 codigoProduto = leitor.nextInt();
-					                 leitor.nextLine();
+					 codigoProduto = sc.nextInt();
+					                 sc.nextLine();
 					                 
 					 if(codigoProduto<=0 || codigoProduto > codigo) {
 						 System.err.println("código inválido");
@@ -84,14 +84,14 @@ public static void main(String[] args) {
 					 String nomeProduto = produtos.get(codigoProduto); 
 					 
 					 System.out.println("Digite o novo preço do " +nomeProduto);
-					 precoProduto = leitor.nextDouble();
+					 precoProduto = sc.nextDouble();
 					 
 					 alterarProdutoPreco(codigoProduto,produtos, precos, precoProduto);
 					 break;		 
 				
 				case 5: System.out.println("Digite o código do produto a ser deletado");
-						codigoProduto = leitor.nextInt();
-										leitor.nextLine();
+						codigoProduto = sc.nextInt();
+										sc.nextLine();
 						deletarProduto(codigoProduto, produtos);
 										
 						break;
