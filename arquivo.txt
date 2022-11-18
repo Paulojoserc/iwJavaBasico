@@ -1,0 +1,2 @@
+melancia,1.25
+laranja,5.0
