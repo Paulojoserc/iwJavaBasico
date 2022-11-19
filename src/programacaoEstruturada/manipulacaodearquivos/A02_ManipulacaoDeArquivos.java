@@ -70,6 +70,7 @@ public class A02_ManipulacaoDeArquivos {
 			System.out.println("Erro ao ler o arquivo!");
 			e.printStackTrace();
 		}
+		System.out.println(resposta);
 		return resposta;
 	}
 }
