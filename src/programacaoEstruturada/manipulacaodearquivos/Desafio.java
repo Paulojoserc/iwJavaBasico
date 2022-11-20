@@ -72,6 +72,7 @@ public class Desafio {
 				listarProdutos(produtos);
 				alterarArquivo(enderecoProduto, produtos);
 			}
+			sc.close();
 		}
 
 	}
